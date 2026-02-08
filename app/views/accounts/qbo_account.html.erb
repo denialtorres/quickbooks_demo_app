@@ -1,0 +1,75 @@
+<div class="min-h-screen bg-[#faf9f5] py-12">
+  <div class="container mx-auto px-4 max-w-3xl">
+    <h1 class="text-4xl font-bold text-[#141413] mb-8 font-display text-center">
+      QuickBooks Online Connection
+    </h1>
+
+    <div class="bg-white rounded-xl shadow-lg p-8 border border-[#e8e6dc]">
+      <% q = @qbo_account %>
+
+      <div class="flex flex-col justify-center items-center gap-6 mt-8">
+        <%= connected?(q) %>
+        <%= link_to "Back to Dashboard", accounts_path, class: "bg-[#d97757] text-[#faf9f5] px-6 py-3 rounded-lg hover:bg-[#c06040] transition-colors font-display font-medium" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check for flash message in sessionStorage
+    var flashNotice = sessionStorage.getItem('flash_notice');
+
+    if (flashNotice) {
+      try {
+        // Parse the JSON string (it's stored as a JSON string)
+        var message = JSON.parse(flashNotice);
+
+        // Create flash alert element
+        var flashAlert = document.createElement('div');
+        flashAlert.className = 'fixed top-4 right-4 max-w-md bg-green-50 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-lg z-50 transition-all duration-500 ease-in-out opacity-0 transform -translate-x-full';
+        flashAlert.innerHTML = `
+          <div class="flex items-start">
+            <div class="flex-shrink-0">
+              <svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-medium">${message}</p>
+            </div>
+            <div class="ml-auto pl-3">
+              <button onclick="this.parentElement.parentElement.parentElement.remove()" class="inline-flex rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        `;
+
+        // Add to document
+        document.body.appendChild(flashAlert);
+
+        // Clear from sessionStorage
+        sessionStorage.removeItem('flash_notice');
+
+        // Animate in
+        setTimeout(function() {
+          flashAlert.classList.remove('opacity-0', '-translate-x-full');
+        }, 100);
+
+        // Auto dismiss after 8 seconds
+        setTimeout(function() {
+          flashAlert.classList.add('opacity-0', '-translate-x-full');
+          setTimeout(function() {
+            flashAlert.remove();
+          }, 500);
+        }, 8000);
+      } catch (e) {
+        console.error('Error parsing flash message:', e);
+        sessionStorage.removeItem('flash_notice');
+      }
+    }
+  });
+</script>
