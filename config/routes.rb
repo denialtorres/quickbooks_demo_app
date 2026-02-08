@@ -10,7 +10,13 @@ Rails.application.routes.draw do
   get "/home", to: "pages#home"
   get "/about", to: "pages#about"
 
-  root "pages#home"
+  authenticate :user, ->(user) { !user.account.present? } do
+    root to: "pages#home", as: :admin_root
+  end
+
+  authenticate :user, ->(user) { user.account.present? } do
+    root to: "dashboard#index", as: :account_root
+  end
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
