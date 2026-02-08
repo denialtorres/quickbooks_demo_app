@@ -2,19 +2,19 @@
   <!-- Hero Section -->
   <div class="container mx-auto px-4 py-16">
     <div class="text-center mb-16">
-      <h1 class="text-5xl font-bold text-[#141413] mb-6" style="font-family: Poppins, Arial, sans-serif;">
+      <h1 class="text-5xl font-bold text-[#141413] mb-6 font-display">
         Welcome to Quickbooks Demo App
       </h1>
-      <p class="text-xl text-[#141413] max-w-2xl mx-auto mb-8" style="font-family: Lora, Georgia, serif;">
+      <p class="text-xl text-[#141413] max-w-2xl mx-auto mb-8 font-sans">
         A modern, user-friendly application designed to help you manage your business efficiently with powerful tools and intuitive features.
       </p>
 
       <div class="flex gap-4 justify-center">
         <% if user_signed_in? %>
-          <%= link_to "Dashboard", "#", class: "bg-[#d97757] text-[#faf9f5] px-8 py-3 rounded-lg hover:bg-[#c06040] transition-colors font-semibold shadow-lg hover:shadow-xl", style: "font-family: Poppins, Arial, sans-serif;" %>
+          <%= link_to "Dashboard", "#", class: "bg-[#d97757] text-[#faf9f5] px-8 py-3 rounded-lg hover:bg-[#c06040] transition-colors font-semibold shadow-lg hover:shadow-xl font-display" %>
         <% else %>
-          <%= link_to "Get Started", new_user_registration_path, class: "bg-[#d97757] text-[#faf9f5] px-8 py-3 rounded-lg hover:bg-[#c06040] transition-colors font-semibold shadow-lg hover:shadow-xl", style: "font-family: Poppins, Arial, sans-serif;" %>
-          <%= link_to "Sign In", new_user_session_path, class: "bg-white text-[#d97757] px-8 py-3 rounded-lg border-2 border-[#d97757] hover:bg-[#e8e6dc] transition-colors font-semibold shadow-md hover:shadow-lg", style: "font-family: Poppins, Arial, sans-serif;" %>
+          <%= link_to "Get Started", new_user_registration_path, class: "bg-[#d97757] text-[#faf9f5] px-8 py-3 rounded-lg hover:bg-[#c06040] transition-colors font-semibold shadow-lg hover:shadow-xl font-display" %>
+          <%= link_to "Sign In", new_user_session_path, class: "bg-white text-[#d97757] px-8 py-3 rounded-lg border-2 border-[#d97757] hover:bg-[#e8e6dc] transition-colors font-semibold shadow-md hover:shadow-lg font-display" %>
         <% end %>
       </div>
     </div>
@@ -27,8 +27,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-[#141413] mb-3" style="font-family: Poppins, Arial, sans-serif;">Fast & Efficient</h3>
-        <p class="text-[#b0aea5]" style="font-family: Lora, Georgia, serif;">
+        <h3 class="text-xl font-bold text-[#141413] mb-3 font-display">Fast & Efficient</h3>
+        <p class="text-[#b0aea5] font-sans">
           Lightning-fast performance and streamlined workflows to help you get more done in less time.
         </p>
       </div>
@@ -39,8 +39,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-[#141413] mb-3" style="font-family: Poppins, Arial, sans-serif;">Secure & Reliable</h3>
-        <p class="text-[#b0aea5]" style="font-family: Lora, Georgia, serif;">
+        <h3 class="text-xl font-bold text-[#141413] mb-3 font-display">Secure & Reliable</h3>
+        <p class="text-[#b0aea5] font-sans">
           Enterprise-grade security features to keep your data safe and accessible whenever you need it.
         </p>
       </div>
@@ -51,8 +51,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-[#141413] mb-3" style="font-family: Poppins, Arial, sans-serif;">Easy to Use</h3>
-        <p class="text-[#b0aea5]" style="font-family: Lora, Georgia, serif;">
+        <h3 class="text-xl font-bold text-[#141413] mb-3 font-display">Easy to Use</h3>
+        <p class="text-[#b0aea5] font-sans">
           Intuitive interface designed with user experience in mind. No technical expertise required.
         </p>
       </div>
@@ -60,14 +60,14 @@
 
     <!-- CTA Section -->
     <div class="mt-20 bg-[#141413] rounded-2xl p-12 text-center text-[#faf9f5] shadow-xl">
-      <h2 class="text-4xl font-bold mb-4" style="font-family: Poppins, Arial, sans-serif;">Ready to Get Started?</h2>
-      <p class="text-[#b0aea5] text-lg mb-8 max-w-2xl mx-auto" style="font-family: Lora, Georgia, serif;">
+      <h2 class="text-4xl font-bold mb-4 font-display">Ready to Get Started?</h2>
+      <p class="text-[#b0aea5] text-lg mb-8 max-w-2xl mx-auto font-sans">
         Join thousands of users who are already experiencing the power of our platform.
       </p>
       <% if user_signed_in? %>
-        <%= link_to "Go to Dashboard", "#", class: "bg-white text-[#141413] px-8 py-3 rounded-lg hover:bg-[#e8e6dc] transition-colors font-semibold shadow-lg hover:shadow-xl inline-block", style: "font-family: Poppins, Arial, sans-serif;" %>
+        <%= link_to "Go to Dashboard", "#", class: "bg-white text-[#141413] px-8 py-3 rounded-lg hover:bg-[#e8e6dc] transition-colors font-semibold shadow-lg hover:shadow-xl inline-block font-display" %>
       <% else %>
-        <%= link_to "Create Free Account", new_user_registration_path, class: "bg-white text-[#141413] px-8 py-3 rounded-lg hover:bg-[#e8e6dc] transition-colors font-semibold shadow-lg hover:shadow-xl inline-block", style: "font-family: Poppins, Arial, sans-serif;" %>
+        <%= link_to "Create Free Account", new_user_registration_path, class: "bg-white text-[#141413] px-8 py-3 rounded-lg hover:bg-[#e8e6dc] transition-colors font-semibold shadow-lg hover:shadow-xl inline-block font-display" %>
       <% end %>
     </div>
   </div>

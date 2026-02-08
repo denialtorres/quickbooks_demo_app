@@ -1,30 +1,30 @@
-<div class="min-h-screen flex items-center justify-center px-4 bg-[#faf9f5]">
+```<div class="min-h-screen flex items-center justify-center px-4 bg-[#faf9f5]">
   <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8 border border-[#e8e6dc]">
-    <h2 class="text-3xl font-bold text-center text-[#141413] mb-8" style="font-family: Poppins, Arial, sans-serif;">Log in</h2>
+    <h2 class="text-3xl font-bold text-center text-[#141413] mb-8 font-display">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }) do |f| %>
       <div class="field">
-        <%= f.label :email, class: "block text-sm font-medium text-[#141413] mb-2", style: "font-family: Lora, Georgia, serif;" %>
+        <%= f.label :email, class: "block text-sm font-medium text-[#141413] mb-2 font-sans" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email",
-            class: "w-full px-4 py-2 border border-[#e8e6dc] rounded-lg focus:ring-2 focus:ring-[#d97757] focus:border-[#d97757] outline-none transition-colors bg-[#faf9f5] text-[#141413]", style: "font-family: Lora, Georgia, serif;" %>
+            class: "w-full px-4 py-2 border border-[#e8e6dc] rounded-lg focus:ring-2 focus:ring-[#d97757] focus:border-[#d97757] outline-none transition-colors bg-[#faf9f5] text-[#141413] font-sans" %>
       </div>
 
       <div class="field">
-        <%= f.label :password, class: "block text-sm font-medium text-[#141413] mb-2", style: "font-family: Lora, Georgia, serif;" %>
+        <%= f.label :password, class: "block text-sm font-medium text-[#141413] mb-2 font-sans" %>
         <%= f.password_field :password, autocomplete: "current-password",
-            class: "w-full px-4 py-2 border border-[#e8e6dc] rounded-lg focus:ring-2 focus:ring-[#d97757] focus:border-[#d97757] outline-none transition-colors bg-[#faf9f5] text-[#141413]", style: "font-family: Lora, Georgia, serif;" %>
+            class: "w-full px-4 py-2 border border-[#e8e6dc] rounded-lg focus:ring-2 focus:ring-[#d97757] focus:border-[#d97757] outline-none transition-colors bg-[#faf9f5] text-[#141413] font-sans" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
         <div class="field flex items-center">
           <%= f.check_box :remember_me, class: "h-4 w-4 text-[#d97757] focus:ring-[#d97757] border-[#e8e6dc] rounded" %>
-          <%= f.label :remember_me, class: "ml-2 block text-sm text-[#141413]", style: "font-family: Lora, Georgia, serif;" %>
+          <%= f.label :remember_me, class: "ml-2 block text-sm text-[#141413] font-sans" %>
         </div>
       <% end %>
 
       <div class="actions">
         <%= f.submit "Log in",
-            class: "w-full bg-[#d97757] text-[#faf9f5] py-2 px-4 rounded-lg hover:bg-[#c06040] focus:ring-2 focus:ring-[#d97757] focus:ring-offset-2 outline-none transition-colors font-medium", style: "font-family: Poppins, Arial, sans-serif;" %>
+            class: "w-full bg-[#d97757] text-[#faf9f5] py-2 px-4 rounded-lg hover:bg-[#c06040] focus:ring-2 focus:ring-[#d97757] focus:ring-offset-2 outline-none transition-colors font-medium font-display" %>
       </div>
     <% end %>
 

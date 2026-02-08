@@ -27,13 +27,13 @@
 
   <body class="min-h-screen flex flex-col">
       <% if notice.present? %>
-        <div class="bg-[#788c5d]/10 border border-[#788c5d] text-[#141413] px-4 py-3 rounded mx-4 mt-4" style="font-family: Lora, Georgia, serif;">
+        <div class="bg-[#788c5d]/10 border border-[#788c5d] text-[#141413] px-4 py-3 rounded mx-4 mt-4 font-sans">
           <%= notice %>
         </div>
       <% end %>
 
       <% if alert.present? %>
-        <div class="bg-[#d97757]/10 border border-[#d97757] text-[#141413] px-4 py-3 rounded mx-4 mt-4" style="font-family: Lora, Georgia, serif;">
+        <div class="bg-[#d97757]/10 border border-[#d97757] text-[#141413] px-4 py-3 rounded mx-4 mt-4 font-sans">
           <%= alert %>
         </div>
       <% end %>
