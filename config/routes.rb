@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "accounts/index"
   devise_for :users, path: "secure", controllers: { registrations: "registrations", sessions: "sessions" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -9,6 +8,13 @@ Rails.application.routes.draw do
 
   get "/home", to: "pages#home"
   get "/about", to: "pages#about"
+
+  resources :accounts do
+    collection do
+      get :oauth2_callback
+      get :qbo_account
+    end
+  end
 
   authenticate :user, ->(user) { !user.account.present? } do
     root to: "pages#home", as: :admin_root

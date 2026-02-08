@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_08_012909) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_08_031031) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "identifier"
     t.string "name"
     t.datetime "updated_at", null: false
     t.index ["identifier"], name: "index_accounts_on_identifier", unique: true
+  end
+
+  create_table "qbo_accounts", force: :cascade do |t|
+    t.integer "account_id"
+    t.datetime "created_at", null: false
+    t.integer "default_labor"
+    t.string "encrypted_access_token"
+    t.string "encrypted_access_token_iv"
+    t.string "encrypted_companyid"
+    t.string "encrypted_companyid_iv"
+    t.string "encrypted_refresh_token"
+    t.string "encrypted_refresh_token_iv"
+    t.datetime "reconnect_token_at"
+    t.datetime "token_expires_at"
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
