@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "dashboard/index"
+  get "accounts/index"
   devise_for :users, path: "secure", controllers: { registrations: "registrations", sessions: "sessions" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   authenticate :user, ->(user) { user.account.present? } do
-    root to: "dashboard#index", as: :account_root
+    root to: "accounts#index", as: :account_root
   end
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
