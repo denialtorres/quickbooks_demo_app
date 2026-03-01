@@ -11,7 +11,7 @@ class Account < ApplicationRecord
   def set_oauth2_creds(args)
     args.merge!(QboAccount.oauth2_expiry_attrs)
     if qbo_account
-      qbo_account.update_attributes(args)
+      qbo_account.update(args)
     else
       create_qbo_account(args)
     end

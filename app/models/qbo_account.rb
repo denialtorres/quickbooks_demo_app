@@ -12,4 +12,8 @@ class QboAccount < ApplicationRecord
   def self.oauth2_expiry_attrs
     { token_expires_at: 1.hour.from_now, reconnect_token_at: 50.minutes.from_now }
   end
+
+  def clear
+    update(access_token: nil, refresh_token: nil, company_id: nil)
+  end
 end

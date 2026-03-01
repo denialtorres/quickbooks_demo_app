@@ -20,7 +20,12 @@ class AccountsController < ApplicationController
   end
 
   def disconnect
-    binding.pry
+    current_account.qbo_account.clear
+    url = qbo_account_url(current_account)
+    redirect_to url, notice: "Successfully disconnected from Quickbooks", turbolinks: false
+  rescue => e
+    url = qbo_account_url(current_account)
+    redirect_to url, alert: "There was a problem disconnecting from Quickbooks. try again",  turbolinks: false
   end
 
   private
