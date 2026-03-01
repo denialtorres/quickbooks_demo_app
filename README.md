@@ -115,7 +115,21 @@ This demo application showcases a production-ready QuickBooks Online integration
    rails server
    ```
 
-7. **Access the application**
+7. **Start the Crono scheduler** (for automatic token renewal)
+   
+   The Crono scheduler automatically renews QuickBooks OAuth2 tokens to prevent expiration:
+   
+   ```bash
+   # Start the Crono process
+   bundle exec crono start
+   
+   # Stop the Crono process
+   bundle exec crono stop
+   ```
+   
+   Note: The Crono scheduler runs every 3 minutes to check and renew tokens that need refreshing.
+
+8. **Access the application**
    Open your browser and navigate to `http://localhost:3000`
 
 ## Usage
