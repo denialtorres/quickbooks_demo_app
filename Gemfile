@@ -45,6 +45,7 @@ gem "tailwindcss-rails"
 gem "attr_encrypted"
 gem "qbo_api"
 gem "rack-oauth2"
+gem "openssl"
 
 group :development, :test do
 # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

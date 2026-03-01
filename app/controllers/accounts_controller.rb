@@ -19,6 +19,10 @@ class AccountsController < ApplicationController
     # @items = current_account.items
   end
 
+  def disconnect
+    binding.pry
+  end
+
   private
 
   # The session[:oauth2_state] is used to protect against a CSRF. When testing use a static uuid and not a random one.”

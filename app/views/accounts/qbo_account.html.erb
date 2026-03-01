@@ -7,9 +7,46 @@
     <div class="bg-white rounded-xl shadow-lg p-8 border border-[#e8e6dc]">
       <% q = @qbo_account %>
 
-      <div class="flex flex-col justify-center items-center gap-6 mt-8">
-        <%= connected?(q) %>
-        <%= link_to "Back to Dashboard", accounts_path, class: "bg-[#d97757] text-[#faf9f5] px-6 py-3 rounded-lg hover:bg-[#c06040] transition-colors font-display font-medium" %>
+      <!-- Connection Status Section -->
+      <div class="flex flex-col items-center gap-8">
+        <!-- Status Indicator -->
+        <div class="flex flex-col items-center gap-4">
+          <% if q.access_token.present? %>
+            <div class="flex items-center gap-3">
+              <div class="w-4 h-4 bg-[#788c5d] rounded-full animate-pulse"></div>
+              <span class="text-[#141413] font-display font-semibold text-lg">Connected</span>
+            </div>
+            <p class="text-[#b0aea5] text-sm">Your account is connected to QuickBooks Online</p>
+          <% else %>
+            <div class="flex items-center gap-3">
+              <div class="w-4 h-4 bg-[#b0aea5] rounded-full"></div>
+              <span class="text-[#141413] font-display font-semibold text-lg">Not Connected</span>
+            </div>
+            <p class="text-[#b0aea5] text-sm">Connect your account to QuickBooks Online</p>
+          <% end %>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md">
+          <% if q.access_token.present? %>
+            <div class="flex flex-col items-center gap-4">
+              <div class="p-6 bg-[#faf9f5] rounded-xl border border-[#e8e6dc] hover:shadow-md transition-all duration-300">
+                <%= disconnect_link(@current_account) %>
+              </div>
+              <p class="text-xs text-[#b0aea5]">Click to disconnect from QuickBooks</p>
+            </div>
+          <% else %>
+            <%= connected?(q) %>
+          <% end %>
+        </div>
+
+        <!-- Back Button -->
+        <div class="pt-4 border-t border-[#e8e6dc] w-full max-w-md">
+          <%= link_to accounts_path, class: "w-full flex items-center justify-center gap-2 bg-[#d97757] text-[#faf9f5] px-6 py-3 rounded-lg hover:bg-[#c06040] transition-colors font-display font-medium" do %>
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Dashboard</span>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

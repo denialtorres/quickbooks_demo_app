@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get :oauth2_callback
       get :qbo_account
+      get :disconnect
     end
   end
 

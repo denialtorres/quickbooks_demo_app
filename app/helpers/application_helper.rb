@@ -12,4 +12,25 @@ module ApplicationHelper
               onmouseout: "this.style.backgroundColor='#2ca01c'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)';"
     end
   end
+
+  def disconnect_link(account)
+    title = "disconnect from Quickbooks"
+    alert = "Are you sure you want to #{title}?"
+    content = font_icon("plug", add: "fa-3x text-danger disconnect", title: title)
+    link_to content, disconnect_accounts_path(account), data: { confirm: alert }
+  end
+
+  # Font Awesome icon helper
+  # Usage examples:
+  #   font_icon("flag")                                    # => <i class="fa-solid fa-flag"></i>
+  #   font_icon("amazon", style: "brands")                # => <i class="fa-brands fa-amazon"></i>
+  #   font_icon("bell", style: "regular")                  # => <i class="fa-regular fa-bell"></i>
+  #   font_icon("plug", add: "fa-3x text-danger")          # => <i class="fa-solid fa-plug fa-3x text-danger"></i>
+  #   font_icon("user", title: "User icon")                # => <i class="fa-solid fa-user" title="User icon"></i>
+  def font_icon(name, style: "solid", add: nil, **options)
+    classes = [ "fa-#{style}", "fa-#{name}" ]
+    classes << add if add.present?
+
+    content_tag(:i, "", class: classes.compact.join(" "), **options)
+  end
 end
