@@ -7,6 +7,6 @@ class CreateCronoJobs < ActiveRecord::Migration[6.1]
       t.boolean   :healthy
       t.timestamps null: false
     end
-    add_index :crono_jobs, [:job_id], unique: true
+    add_index :crono_jobs, [ :job_id ], unique: true
   end
 end
