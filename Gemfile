@@ -60,6 +60,10 @@ gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "rubocop-rails-omakase", require: false
   gem "dotenv"
   gem "pry"
+
+  # cronjobs
+  gem "crono"
+  gem "daemons" # for crono
 end
 
 group :development do

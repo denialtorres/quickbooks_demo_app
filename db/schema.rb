@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_08_031031) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_01_171610) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "identifier"
     t.string "name"
     t.datetime "updated_at", null: false
     t.index ["identifier"], name: "index_accounts_on_identifier", unique: true
+  end
+
+  create_table "crono_jobs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.boolean "healthy"
+    t.string "job_id", null: false
+    t.datetime "last_performed_at", precision: nil
+    t.text "log", limit: 1073741823
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
   end
 
   create_table "qbo_accounts", force: :cascade do |t|
